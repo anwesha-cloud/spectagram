@@ -7,7 +7,6 @@ import {
   Platform,
   StatusBar,
   Image,
-  Dimensions,
 } from 'react-native';
 import * as Google from 'expo-google-app-auth';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -119,18 +118,16 @@ export default class LoginScreen extends Component {
   };
 
   render() {
-    if (!this.state.fontsLoaded) {
+   if (!this.state.fontsLoaded) {
       return <AppLoading />;
     } else {
       return (
         <View style={styles.container}>
           <SafeAreaView style={styles.droidSafeArea} />
-          <View style={styles.appTitle}>
-            <Text style={styles.appTitleText}>Stellegram App</Text>
-          </View>
-          <View style={styles.imageContainer}>
-            <Image style={styles.cam} source={require('../assets/cam.jpg')} />
-          </View>
+          <View style={styles.appTitle}> 
+          <Text style={styles.appTitleText}>STELLAGRAM APP</Text>
+        <Image style={styles.cam} source={require('../assets/cam.jpg')} />
+        </View>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={styles.button}
@@ -155,58 +152,53 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
   },
   droidSafeArea: {
-    marginTop:
-      Platform.OS === 'android' ? StatusBar.currentHeight : RFValue(35),
+    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : RFValue(35)
   },
   appTitle: {
     flex: 0.4,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  cam:{
+    width: RFValue(200),
+    height: RFValue(160),
+  },
+  appIcon: {
+    width: RFValue(130),
+    height: RFValue(130),
+    resizeMode: "contain"
   },
   appTitleText: {
-    color: 'white',
-    textAlign: 'center',
-    fontSize: RFValue(20),
-    fontFamily: 'monkey',
-    marginTop: RFValue(-240),
+    color: "white",
+    textAlign: "center",
+    fontSize: RFValue(37),
+    fontFamily: "monkey",
+    marginTop:RFValue(-89)
   },
   buttonContainer: {
     flex: 0.3,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
   button: {
-    width: RFValue(280),
-    height: RFValue(70),
-    flexDirection: 'row',
-    marginTop: RFValue(-30),
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
+    width: RFValue(250),
+    height: RFValue(50),
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
     borderRadius: RFValue(30),
-    backgroundColor:'white'
-  },
-  imageContainer: {
-    flex: 0.2,
-  },
-  cam: {
-    height: RFValue(180),
-    width: RFValue(240),
-    marginTop: RFValue(-185),
-    marginLeft: RFValue(6),
+    backgroundColor: "white",
+    marginTop:RFValue(-49)
   },
   googleIcon: {
-    width: RFValue(47),
-    height: RFValue(47),
-    marginTop: RFValue(-280),
-    marginLeft: RFValue(-25),
-    resizeMode: 'contain',
-    borderRadius:30
+    width: RFValue(30),
+    height: RFValue(30),
+    resizeMode: "contain"
   },
   googleText: {
-    color: 'white',
+    color: "black",
     fontSize: RFValue(20),
-    fontFamily: 'monkey',
-    marginTop: RFValue(-280),
-    justifyContent: 'center',
+    fontFamily: "monkey"
   },
+
 });
