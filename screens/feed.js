@@ -189,5 +189,15 @@ const styles = StyleSheet.create({
   cardContainer: {
     flex: 0.93,
   },
+  noStoriesText:{
+   color:'white',
+   fontFamily: 'Monkey',
+   fontSize:RFValue(16)
+  },
+  noStoriesTextLight:{
+    color:'black',
+    fontFamily: 'Monkey',
+    fontSize:RFValue(16)
+  }
 });
 

@@ -63,6 +63,7 @@ export default class LoginScreen extends Component {
           .auth()
           .signInWithCredential(credential)
           .then(function (result) {
+            console.log(result)
             if (result.additionalUserInfo.isNewUser) {
               firebase
                 .database()

@@ -33,6 +33,7 @@ export default class CreatePost extends Component {
       title: '',
       description: '',
       author: firebase.auth().currentUser.uid,
+      posted_on:new Date()
     };
   }
   async _loadFontsAsync() {
@@ -70,7 +71,7 @@ export default class CreatePost extends Component {
           authorUid: this.state.author,
           previewImage: this.state.previewImage,
           description: this.state.description,
-          posted_on: new Date(),
+          posted_on: this.state.posted_on,
         });
     } else {
       Alert.alert('FILL IN ALL THE FIELDS');
@@ -176,7 +177,7 @@ export default class CreatePost extends Component {
                   })
                 }
                 placeholder={'Title'}
-                placeholderTextColor="white"
+                placeholderTextColor= {this.state.light_theme? " black":"white"}
               />
               <TextInput
                 style={[
@@ -192,7 +193,7 @@ export default class CreatePost extends Component {
                   })
                 }
                 placeholder="Author"
-                placeholderTextColor="white"
+                placeholderTextColor={this.state.light_theme? " black":"white"}
                 multiline={true}
                 numberOfLines={4}
               />
@@ -210,15 +211,17 @@ export default class CreatePost extends Component {
                   })
                 }
                 placeholder="Description"
-                placeholderTextColor="white"
+                placeholderTextColor={this.state.light_theme? " black":"white"}
                 multiline={true}
                 numberOfLines={4}
               />
-              <TouchableOpacity  onPress=
+              <TouchableOpacity 
+                style={styles.button}
+                onPress=
                 {() => {
-                  this.addStory();
+                  this.addPost();
                 }}>
-                  <Text>Create</Text>
+                  <Text style={styles.buttonText}>Create</Text>
                 
               </TouchableOpacity>
             </ScrollView>
@@ -308,4 +311,21 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top',
     padding: RFValue(5),
   },
+  button:{
+    height:RFValue(50),
+    width: RFValue(100),
+    borderWidth :RFValue(3),
+    borderColor:"white",
+    backgroundColor:"rgb(253, 95, 49 )",
+    marginTop:RFValue(50),
+    borderRadius:RFValue(35),
+    justifyContent:'center',
+    marginLeft:RFValue(45)
+  },
+  buttonText:{
+    textAlign :"center", 
+    fontWeight:'bold',
+    fontSize:RFValue(18)
+    
+  }
 });

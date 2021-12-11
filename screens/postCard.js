@@ -25,10 +25,10 @@ export default class PostCard extends Component {
     this.state = {
       fontLoaded: false,
       light_theme: true,
-      post_id: this.props.story.key,
-      post_data: this.props.story.value,
+      post_id: posts.key,
+      post_data: posts.value,
       is_liked: false,
-      likes: this.props.story.value.likes,
+      likes: post.value.likes,
     };
   }
 
@@ -46,7 +46,7 @@ export default class PostCard extends Component {
     if (this.state.is_liked) {
       firebase
         .database()
-        .ref('posts')
+        .ref('post')
         .child(this.state.story_id)
         .child('likes')
         .set(firebase.database.ServerValue.increment(-1));
@@ -81,7 +81,7 @@ export default class PostCard extends Component {
         <TouchableOpacity
           onPress={() => {
             this.props.navigation.navigate('Post', {
-              post: this.props.post,
+              post: post,
             });
           }}>
           <View style={styles.container}>
@@ -101,25 +101,25 @@ export default class PostCard extends Component {
                       ? styles.authorTextLight
                       : styles.authorText
                   }>
-                  {this.props.story.author}
+                  {post.author}
                 </Text>
                 <Image
                   style={styles.storyImage}
-                  source={{ uri: this.props.story.img }}
+                  source={{ uri: post.img }}
                 />
                 <Text style={
                     this.state.light_theme
                       ? styles.storyTitleTextLight
                       : styles.storyTitleText
                   }>
-                  {this.props.story.caption}
+                  {post.caption}
                 </Text>
                 <Text style={
                     this.state.light_theme
                       ? styles.descriptionTextLight
                       : styles.descriptionText
                   }>
-                  {this.props.story.description}
+                  {post.description}
                 </Text>
               </View>
               <View style={styles.actionContainer}>
