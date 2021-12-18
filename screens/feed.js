@@ -70,7 +70,7 @@ export default class Feed extends React.Component {
       .on(
         'value',
         (data) => {
-          let stories = [];
+          let stories = [];s
           if (data.val()) {
             Object.keys(data.val()).forEach(function (key) {
               stories.push({
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   },
   containerLight: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'rgb(255, 244, 183)',
   },
   droidSafeArea: {
     marginTop:

@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
   },
   containerLight: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'rgb(255, 244, 183)',
   },
   droidSafeArea: {
     marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,

@@ -25,8 +25,8 @@ export default class PostCard extends Component {
     this.state = {
       fontLoaded: false,
       light_theme: true,
-      post_id: posts.key,
-      post_data: posts.value,
+      post_id: post.key,
+      post_data: post.value,
       is_liked: false,
       likes: post.value.likes,
     };
@@ -46,7 +46,7 @@ export default class PostCard extends Component {
     if (this.state.is_liked) {
       firebase
         .database()
-        .ref('post')
+        .ref('posts')
         .child(this.state.story_id)
         .child('likes')
         .set(firebase.database.ServerValue.increment(-1));

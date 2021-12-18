@@ -60,7 +60,7 @@ export default class CreatePost extends Component {
     });
   };
 
-  addPost() {
+  addPost=()=>{
     if (this.state.title && this.state.description) {
       firebase
         .database()
@@ -177,7 +177,7 @@ export default class CreatePost extends Component {
                   })
                 }
                 placeholder={'Title'}
-                placeholderTextColor= {this.state.light_theme? " black":"white"}
+                placeholderTextColor= "black"
               />
               <TextInput
                 style={[
@@ -193,7 +193,7 @@ export default class CreatePost extends Component {
                   })
                 }
                 placeholder="Author"
-                placeholderTextColor={this.state.light_theme? " black":"white"}
+                placeholderTextColor=" black"
                 multiline={true}
                 numberOfLines={4}
               />
@@ -211,7 +211,7 @@ export default class CreatePost extends Component {
                   })
                 }
                 placeholder="Description"
-                placeholderTextColor={this.state.light_theme? " black":"white"}
+                placeholderTextColor="black"
                 multiline={true}
                 numberOfLines={4}
               />
@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
   },
   containerLight: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'rgb(255, 244, 183)',
   },
   droidSafeArea: {
     marginTop:
